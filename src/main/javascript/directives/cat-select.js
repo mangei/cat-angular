@@ -90,6 +90,7 @@ function CatSelectController($scope, $log, catApiService, catSelectConfigService
 }
 
 /**
+ * @name cat-select
  * @ngdoc directive
  * @scope
  * @restrict EA

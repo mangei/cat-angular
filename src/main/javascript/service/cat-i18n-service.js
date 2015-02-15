@@ -91,7 +91,6 @@ function CatI18nService($q, $log, catI18nMessageSourceService, catI18nMessagePar
 
 angular.module('cat.service.i18n')
 /**
- * @ngdoc value
  * @name catI18nMessageParameterResolver
  * @value
  *

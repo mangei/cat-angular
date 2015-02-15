@@ -21,6 +21,7 @@ var lodash = require('lodash');
 var lazypipe = require('lazypipe');
 var merge = require('merge-stream');
 var rimraf = require('rimraf');
+var Dgeni = require('dgeni');
 
 var license = '/*!\n ' +
     '* Copyright 2014 the original author or authors.\n ' +
@@ -194,3 +195,35 @@ gulp.task('angular', ['angular-js', 'angular-templates']);
 gulp.task('angular-js', angularJs);
 gulp.task('angular-templates', angularTemplates);
 gulp.task('clean', cleanTask);
+
+gulp.task('dgeni', function() {
+  try {
+    var dgeni = new Dgeni([require('./docs/dgeni-config')]);
+    return dgeni.generate();
+  } catch(x) {
+    console.log(x.stack);
+    throw x;
+  }
+});
+gulp.task('docs', ['dgeni']);
+
+gulp.task('bower', function() {
+    var bowerTask = bower.commands.install();
+    bowerTask.on('log', function (result) {
+        console.log('bower:', result.id, result.data.endpoint.name);
+    });
+    bowerTask.on('error', function(error) {
+        console.log(error);
+    });
+    return bowerTask;
+});
+gulp.task('assets', ['bower'], function() {
+    return gulp.src('bower_components/**/*')
+        .pipe(gulp.dest('build/lib'));
+});
+gulp.task('cleanDocs', function(done) {
+    del(['./build'], done);
+});
+gulp.task('watchDocs', ['docs'], function() {
+    return gulp.watch(['docs/**/*', 'src/**/*'], ['docs']);
+});

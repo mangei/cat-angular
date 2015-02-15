@@ -5,6 +5,7 @@
 'use strict';
 
 /**
+ * @name catViewServiceProvider
  * @ngdoc service
  * @description
  * This service provider can be used to initialize an api endpoint and the according detail and list routes by simply

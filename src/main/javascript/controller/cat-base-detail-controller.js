@@ -1,6 +1,7 @@
 'use strict';
 
 /**
+ * @name CatBaseDetailController
  * @ngdoc function
  *
  * @description

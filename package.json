@@ -43,6 +43,11 @@
     "karma-coverage": "=0.2.6",
     "jshint-stylish": "=1.0.0",
     "merge-stream": "=0.1.6",
-    "rimraf": "=2.2.8"
+    "rimraf": "=2.2.8",
+    "dgeni": "~0.4.1",
+    "dgeni-packages": "~0.10.8"
+  },
+  "dependencies": {
+    "dgeni": "~0.4.1"
   }
 }

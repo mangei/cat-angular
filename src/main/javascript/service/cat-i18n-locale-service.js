@@ -27,7 +27,6 @@ function CatI18nLocaleService($q, $locale, CAT_I18N_DEFAULT_LOCALE) {
 
 angular.module('cat.service.i18n')
 /**
- * @ngdoc constant
  * @name CAT_I18N_DEFAULT_LOCALE
  * @constant
  *

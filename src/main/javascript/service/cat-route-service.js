@@ -5,6 +5,7 @@
 'use strict';
 
 /**
+ * @name CatRouteServiceProvider
  * @ngdoc service
  * @description
  * This service provider delegates to the $stateProvider and actually creates 2 separate routes after applying various

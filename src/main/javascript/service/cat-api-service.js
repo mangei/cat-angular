@@ -124,7 +124,7 @@ function CatApiEndpoint(url, endpointConfig, $http, catConversionService) {
      * with totalCount, facests and elements will be returned.
      *
      * @param {SearchRequest} [searchRequest] if given searchRequest#urlEncoded() will be added to the request url
-     * @return {[{object}]|{totalCount: {Number}, facets: [{Facet}], elements: []}} a promise wrapping either a list of
+     * @return {( {Array.<Object>} | {{totalCount: {Number}, facets: Array.<Facet>, elements: Array}} )} a promise wrapping either a list of
      * instances of the configured model or a wrapper object which holds not only the list but pagination information
      * as well
      */
@@ -137,7 +137,7 @@ function CatApiEndpoint(url, endpointConfig, $http, catConversionService) {
     /**
      * A helper function which adds '/all' to the request url available via #getEndpointUrl and maps the response to
      * the configured model.
-     * @return [{object}] a promise wrapping an array of new instances of the configured model initialized with the data retrieved from
+     * @return {Array.<Object>} a promise wrapping an array of new instances of the configured model initialized with the data retrieved from
      * the backend
      */
     this.all = function () {
@@ -294,6 +294,7 @@ function EndpointConfig(name, config) {
 var _endpoints = {};
 
 /**
+ * @name catApiServiceProvider
  * @ngdoc service
  * @description
  *
